@@ -6,14 +6,24 @@ class Coche {
   }
 
   acelerar() {
-    // Completar: resta 1 unidad de gasolina (si queda gasolina)
+    if (this.gasolina > 0) {
+      this.gasolina -= 1;
+      console.log(`Acelerando... Gasolina restante: ${this.gasolina}`);
+    } else {
+      console.log("No hay gasolina suficiente para acelerar.");
+    }
   }
 
   repostar() {
-    // Completar: Vuelve a poner 5 unidades de gasolina al deposito
-  } 
+   if (this.gasolina < 5) {
+      this.gasolina = 5;
+      console.log("Repostando gasolina. Gasolina ahora: " + this.gasolina);
+    }
+    else {
+      console.log("El depósito ya está lleno.");
+    }
 
-}
+} }
 
 const miCoche = new Coche("Toyota", "Corolla");
 miCoche.acelerar();
