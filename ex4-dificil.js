@@ -4,27 +4,34 @@
 
 class LimitedSet {
     constructor(limit) {
-
+this.limit = limit;
+        this.elements = new Set();
     }
 
     add(elem) {
-
+if (this.elements.size < this.limit) {
+            this.elements.add(elem);
+        }
     }
 
-    values() {
+    values() { 
+        return [...this.elements];
 
     }
 
     size() {
-
+        return this.elements.size;
     }
 
     removeElement(elem) {
-        
+        this.elements.delete(elem);
+        if (this.elements.size === 0) {
+            console.log("No hay elementos en el conjunto.");
+        }
     }
 }
 
-const l = new LimitedArray(3);
+const l = new LimitedSet(3);
 console.log(l.size()); // 0
 l.add("a");
 l.add("b");
